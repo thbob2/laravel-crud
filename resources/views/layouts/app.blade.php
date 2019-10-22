@@ -56,8 +56,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -72,8 +72,30 @@
             </div>
         </nav>
 
+
         <main class="py-4">
-            @yield('content')
+            @auth
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="">Posts</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="">Categories</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            @else
+                @yield('content')
+            @endauth
         </main>
     </div>
 </body>
