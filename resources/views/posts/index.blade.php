@@ -14,11 +14,16 @@
                 <thead>
                     <th>Image</th>
                     <th>Title</th>
+                    <th>Description</th>
                     <tbody>
-                        <tr>
-
-
-                        </tr>
+                        @foreach ($posts as $post)
+                            <tr>
+                                <td>Image</td>
+                                <td>{{$post->title}}</td>
+                                <td>{{$post->description}}</td>
+                                <td> <a href="" class="btn btn-info btn-sm float-right">more</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </thead>
             </table>
