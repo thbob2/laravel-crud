@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use illuminate\Http\Request;
-use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\Categories\CreateCategoryRequest;
+use App\Http\Requests\Categories\UpdateCategoriesRequest;
 use App\Category;
 class CategoriesController extends Controller
 {
@@ -64,9 +65,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
+        return view('categories.create')->with('category', $category);
     }
 
     /**
@@ -76,9 +78,16 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoriesRequest $request, Category $category)
     {
-        //
+        // update a category
+
+        $category->update([
+            'name'=> $request->name
+        ]);
+        session()->flash('success','Category update successfully');
+        return redirect(route('categories.index'));
+
     }
 
     /**
@@ -87,8 +96,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
+        $category->delete();
+        session()->flash('success','Category Deleted successfully');
+        return redirect(route('categories.index'));
     }
 }
