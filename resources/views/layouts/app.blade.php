@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cms') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -78,11 +78,15 @@
 
             @auth
                 <div class="container">
-                        @if (session()->has('success'))
+
+
+                    @if (session()->has('success'))
                         <div class="alert alert-success">
                             {{session()->get('success')}}
                         </div>
                     @endif
+
+
                     <div class="row">
                         <div class="col-md-3 ">
                             <ul class="list-group">

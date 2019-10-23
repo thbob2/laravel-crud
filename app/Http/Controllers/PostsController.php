@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Http\Requests\Posts\CreatePostRequest;
 class PostsController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -33,9 +34,29 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        //store the picture
+        $image = $request->image->store('posts');
+        //create the post
+        Post::create([
+
+            'title' => $request->title,
+
+            'description '=> $request->description,
+
+            'content' => $request->content,
+
+
+            'image' =>  $image
+
+        ]);
+        //save the post
+
+        // session flah
+        session()->flash('success','Post Created Successfully');
+        //redirect the user
+        return redirect(route('posts.index'));
     }
 
     /**

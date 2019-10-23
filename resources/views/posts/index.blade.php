@@ -10,7 +10,18 @@
             Posts
         </div>
         <div class="card-body">
+            <table class="table">
+                <thead>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <tbody>
+                        <tr>
 
+
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
         </div>
     </div>
 @endsection
