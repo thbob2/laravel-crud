@@ -40,10 +40,9 @@ class PostsController extends Controller
         $image = $request->image->store('posts');
         //create the post
         Post::create([
-
             'title' => $request->title,
 
-            'description '=> $request->description,
+            'description'=> $request->description,
 
             'content' => $request->content,
 

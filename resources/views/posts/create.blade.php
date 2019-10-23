@@ -20,36 +20,35 @@
                 </ul>
             </div>
         @endif
-        <form action="{{isset($post) ? route('posts.update',$post->id) : route('posts.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @if (isset($post))
-                @method('PUT')
-            @endif
 
             <div class="form-group">
                 <label for="title">title</label>
-                <input type="text" id="title" class="form-control" name="title" value="{{  isset($post) ? $post->title:''}}">
+                <input type="text" id="title" class="form-control" name="title">
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" cols="5" rows="3" class="form-control">{{  isset($post) ? $post->description:''}}</textarea>
+                <textarea name="description" id="description" cols="5" rows="3" class="form-control">
+
+                </textarea>
             </div>
 
 
             <div class="form-group">
                 <label for="content">Content</label>
-                <textarea name="content" id="content" cols="5" rows="8" class="form-control">{{  isset($post) ? $post->content:''}}</textarea>
+                <textarea name="content" id="content" cols="5" rows="8" class="form-control"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="published_at">published at </label>
-                <input type="text" id="publised_at" class="form-control" name="published_at" value="{{  isset($post) ? $post->published_at:''}}">
+                <input type="text" id="publised_at" class="form-control" name="published_at">
             </div>
 
             <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" id="image" class="form-control" name="image" value="{{  isset($post) ? $post->image:''}}">
+                    <input type="file" id="image" class="form-control" name="image">
                 </div>
 
             <div class="form-group">
