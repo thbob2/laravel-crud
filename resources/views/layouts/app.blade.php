@@ -85,7 +85,11 @@
                             {{session()->get('success')}}
                         </div>
                     @endif
-
+                    @if (session()->has('trashed'))
+                        <div class="alert alert-danger">
+                            {{session()->get('trashed')}}
+                        </div>
+                    @endif
 
                     <div class="row">
                         <div class="col-md-3 ">

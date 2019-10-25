@@ -15,6 +15,7 @@ class AddSoftDeletesToPostTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +28,7 @@ class AddSoftDeletesToPostTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->dropColumn('deleted_at');
         });
     }
 }
