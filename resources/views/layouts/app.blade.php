@@ -102,6 +102,11 @@
                                 </li>
 
                             </ul>
+                            <ul class="list-group mt-5">
+                                <li class="list-group-item">
+                                    <a href="{{route('trashed-posts.index')}}">Trashed posts</a>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-md-8">
                             @yield('content')
