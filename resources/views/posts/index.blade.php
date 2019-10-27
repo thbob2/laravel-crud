@@ -28,7 +28,7 @@
                                 <td>{{$post->description}}</td>
                                 <td class="float-right">
                                     @if (!$post->trashed())
-                                        <a href="" class="btn btn-info btn-sm ">more</a>
+                                        <a href="{{route('posts.edit',$post->id)}}" class="btn btn-info btn-sm ">edit</a>
                                     @endif
 
 

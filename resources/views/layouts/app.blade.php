@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="{{url('./node_modules/dark-mode-switch/dark-mode.css')}}">
 </head>
 <body>
     <div id="app">
@@ -126,6 +127,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{url("./node_modules/dark-mode-switch/dark-mode-switch.min.js")}}"></script>
     @yield('scripts')
 
 </body>

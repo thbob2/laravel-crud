@@ -20,36 +20,40 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('posts.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{isset($post)  ? route('posts.update',$post) : route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
-
+            @if (isset($post))
+                @method('PUT')
+            @endif
             <div class="form-group">
                 <label for="title">title</label>
-                <input type="text" id="title" class="form-control" name="title">
+            <input type="text" id="title" class="form-control" name="title" value="{{isset($post) ? $post->title: ''}}">
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" cols="5" rows="3" class="form-control">
-
-                </textarea>
+                <textarea name="description" id="description" cols="5" rows="3" class="form-control">{{isset($post) ? $post->description: ''}}</textarea>
             </div>
 
 
             <div class="form-group">
                 <label for="content">Content</label>
-                <input name="content" id="content" cols="5" rows="8" class="form-control" type="hidden"></input>
-                <trix-editor input="content" cols="5" rows="8"></trix-editor>
+                <input name="content" id="content" cols="5" rows="8" class="form-control" type="hidden" value="{{isset($post) ? $post->content: ''}}"></input>
+                <trix-editor input="content" cols="5" rows="8"> </trix-editor>
             </div>
 
             <div class="form-group">
                 <label for="published_at">published at </label>
-                <input type="text" id="published_at" class="form-control" name="published_at">
+                <input type="text" id="published_at" class="form-control" name="published_at" value="{{isset($post) ? $post->published_at: ''}}">
             </div>
-
+            @if (isset($post))
+            <form-group>
+                    <img src="{{url('storage/'.$post->image)}}"style="width: 100%" alt="">
+            </form-group>
+            @endif
             <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" name="image" id="image" class="form-control" >
+                    <input type="file" name="image" id="image" class="form-control">
                 </div>
 
             <div class="form-group">
