@@ -42,14 +42,10 @@ class PostsController extends Controller
         //create the post
         Post::create([
             'title' => $request->title,
-
             'description'=> $request->description,
-
             'content' => $request->content,
-
-
-            'image' =>  $image
-
+            'image' =>  $image,
+            'published_at' =>$request->published_at
         ]);
         //save the post
 
