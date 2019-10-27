@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\Posts\CreatePostRequest;
+use Illuminate\Support\Facades\Storage;
 class PostsController extends Controller
 {
     /**
@@ -103,18 +104,18 @@ class PostsController extends Controller
         //
         $post = Post::withTrashed()->where('id',$id)->firstorfail();
         if($post->trashed()){
+            Storage::delete($post->image);
             $post->forceDelete();
             session()->flash('trashed','Post deleted Successfully');
 
-            return redirect(route('posts.index'));
         }else {
             $post->delete();
             session()->flash('trashed','Post moved to trash  Successfully');
-        //redirect the user
-            return redirect(route('posts.index'));
+
+
         }
-
-
+        //redirect the user
+        return redirect(route('posts.index'));
     }
     /**
      * Update the specified resource in storage.
