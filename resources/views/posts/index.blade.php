@@ -16,6 +16,7 @@
                     <th>Image</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Category</th>
                     <th></th>
                     <tbody>
                         @foreach ($posts as $post)
@@ -26,6 +27,9 @@
                                 </td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->description}}</td>
+                                <td>
+                                    {{$post->category->name}}
+                                </td>
                                 <td class="float-right">
 
                                     @if ($post->trashed())
