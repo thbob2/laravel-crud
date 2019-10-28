@@ -73,7 +73,7 @@
 
             form.action ='/categories/'+ id
 
-            console.log('deleteing',form);
+
 
             $('#deleteModal').modal('show');
 
