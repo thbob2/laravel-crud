@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create')->with('categories',Category::all());
     }
 
     /**
@@ -45,7 +46,9 @@ class PostsController extends Controller
             'title' => $request->title,
             'description'=> $request->description,
             'content' => $request->content,
+
             'image' =>  $image,
+            'category_id' => $request->category,
             'published_at' =>$request->published_at
         ]);
         //save the post
@@ -76,7 +79,7 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('posts.create')->with('post',$post);
+        return view('posts.create')->with('post',$post)->with('categories', Category::all());
     }
 
     /**

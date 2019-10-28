@@ -46,23 +46,38 @@
                 <label for="published_at">published at </label>
                 <input type="text" id="published_at" class="form-control" name="published_at" value="{{isset($post) ? $post->published_at: ''}}">
             </div>
+
             @if (isset($post))
+
             <form-group>
-                    <img src="{{url('storage/'.$post->image)}}"style="width: 100%" alt="">
+                <img src="{{url('storage/'.$post->image)}}"style="width: 100%" alt="">
             </form-group>
+
             @endif
+
             <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" name="image" id="image" class="form-control">
-                </div>
+                <label for="category">Category</label>
+                <select name="category" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" class="form-control">
+            </div>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success float-right">{{ isset($post)  ? 'Update Post':'Create Post'}}</button>
             </div>
 
         </form>
-        </div>
+
     </div>
+
+</div>
 @endsection
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
