@@ -27,21 +27,28 @@
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->description}}</td>
                                 <td class="float-right">
-                                    @if (!$post->trashed())
-                                        <a href="{{route('posts.edit',$post->id)}}" class="btn btn-info btn-sm ">edit</a>
+
+                                    @if ($post->trashed())
+                                    <form action=" {{route('restore-posts',$post->id)}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button  type="submit" class="btn btn-warning btn-sm " style="color:white">Restore</button>
+                                    </form>
+                                    @else
+                                        <a href="{{route('posts.edit',$post->id)}}" class="btn btn-info btn-sm ">edit </a>
                                     @endif
 
 
-                                <form action="{{route('posts.destroy',$post->id)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
+                                    <form action="{{route('posts.destroy',$post->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    <button type="submit" class="btn btn-danger btn-sm ">
-                                        {{ $post->trashed() ? 'Delete':'Trash' }}
+                                        <button type="submit" class="btn btn-danger btn-sm ">
+                                            {{ $post->trashed() ? 'Delete':'Trash' }}
 
-                                    </button>
+                                        </button>
 
-                                </form>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -74,10 +74,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-            </div>
         </nav>
 
 
@@ -92,12 +88,18 @@
                             {{session()->get('success')}}
                         </div>
                     @endif
+
                     @if (session()->has('trashed'))
                         <div class="alert alert-danger">
                             {{session()->get('trashed')}}
                         </div>
                     @endif
 
+                    @if (session()->has('restored'))
+                    <div class="alert alert-warning">
+                        {{session()->get('restored')}}
+                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-3 ">
                             <ul class="list-group">
@@ -128,7 +130,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="dark-mode-switch.min.js"></script>
     @yield('scripts')
 
 </body>

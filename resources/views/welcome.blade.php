@@ -20,6 +20,7 @@
                 margin: 0;
             }
 
+
             .full-height {
                 height: 100vh;
             }
@@ -39,7 +40,6 @@
                 right: 10px;
                 top: 18px;
             }
-
             .content {
                 text-align: center;
             }
@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="container"">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

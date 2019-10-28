@@ -94,7 +94,7 @@ class PostsController extends Controller
         //upload it
             $image = $request->image->store('posts');
          //delete old image
-            Storage::delete($post->image);
+            $post->deleteImage();
             $data['image'] = $image;
 
         }
@@ -119,8 +119,9 @@ class PostsController extends Controller
         //
         $post = Post::withTrashed()->where('id',$id)->firstorfail();
         if($post->trashed()){
-            Storage::delete($post->image);
+            $post->deleteImage();
             $post->forceDelete();
+
             session()->flash('trashed','Post deleted Successfully');
 
         }else {
@@ -137,7 +138,13 @@ class PostsController extends Controller
      * display the trashed item
      */
     public function trashed(){
-        $trashed = Post::withTrashed()->get();
+        $trashed = Post::onlyTrashed()->get();
         return view('posts.index')->withPosts($trashed);
+    }
+    public function restore($id){
+        $post = Post::withTrashed()->where('id',$id)->firstorfail();
+        $post->restore();
+        session()->flash('restored','Post restored  Successfully');
+        return redirect()->back();
     }
 }
