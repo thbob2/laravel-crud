@@ -101,6 +101,12 @@
                         </div>
                     @endif
 
+                    @if (session()->has('EmptyC'))
+                        <div class="alert alert-info">
+                            {{session()->get('EmptyC')}}
+                        </div>
+                    @endif
+
                     @if (session()->has('restored'))
                     <div class="alert alert-warning">
                         {{session()->get('restored')}}
