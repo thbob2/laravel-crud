@@ -14,9 +14,11 @@ class VerifyCategoriesCount
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   // if no categories user must create ones before creating posts
         if(Category::all()->count()==0){
+            // generating session message
             session()->flash('EmptyC','no Existing Categories please Create');
+            // redirect  user to the categories create view
             return redirect(route('categories.create'));
         }
 
