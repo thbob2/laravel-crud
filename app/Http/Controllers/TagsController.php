@@ -23,7 +23,7 @@ class TagsController extends Controller
         Tag::create(['name' => $request->name
 
         ]);
-        session()->flash('success','Tag create Successfully');
+        session()->flash('success','Tag created Successfully');
         return redirect(route('tags.index'));
     }
 
