@@ -20,7 +20,7 @@
                                 <tr>
                                     <td>{{$tag->name}}</td>
                                     <td>
-                                        {{$tag->posts->count()}}
+
                                     </td>
 
                                     <td class="float-right">
@@ -62,4 +62,20 @@
 
             </div>
         </div>
+@endsection
+@section('scripts')
+    <script>
+        function handleDelete(id){
+
+
+            var form = document.getElementById("deleteTagForm")
+
+            form.action ='/tags/'+ id
+
+
+
+            $('#deleteModal').modal('show');
+
+        }
+    </script>
 @endsection
