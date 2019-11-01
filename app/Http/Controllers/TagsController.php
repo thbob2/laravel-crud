@@ -27,6 +27,29 @@ class TagsController extends Controller
         return redirect(route('tags.index'));
     }
 
+    public function edit(Tag $tag)
+    {
+        //
+        return view('tags.create')->with('tag', $tag);
+    }
+
+    public function update(UpdateTagRequest $request, Tag $tag)
+    {
+        // update a tag
+
+        $tag->update([
+            'name'=> $request->name
+        ]);
+        session()->flash('success','tag update successfully');
+        return redirect(route('tags.index'));
 
 
+    }
+    public function destroy(Tag $tag)
+    {
+        //
+        $tag->delete();
+        session()->flash('success','tag Deleted successfully');
+        return redirect(route('tags.index'));
+    }
 }
