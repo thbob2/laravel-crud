@@ -59,7 +59,12 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select name="tags" id="tags" class="form-control" multiple>
 
+                </select>
+            </div>
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" id="image" class="form-control">
