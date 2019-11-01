@@ -60,10 +60,15 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tags">Tags</label>
-                <select name="tags" id="tags" class="form-control" multiple>
 
-                </select>
+                @if ($tags->count()>0)
+                <label for="tags">Tags</label>
+                    <select name="tags" id="tags" class="form-control" multiple>
+                        @foreach ($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                @endif
             </div>
             <div class="form-group">
                 <label for="image">Image</label>

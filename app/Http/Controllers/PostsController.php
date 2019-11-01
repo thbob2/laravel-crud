@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Illuminate\Support\Facades\Storage;
@@ -83,6 +84,7 @@ class PostsController extends Controller
     {
         //
         return view('posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
+    }
 
     /**
      * Update the specified resource in storage.
