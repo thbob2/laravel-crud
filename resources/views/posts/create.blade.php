@@ -59,11 +59,11 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group" id ="tag-modal">
 
                 @if ($tags->count()>0)
                 <label for="tags">Tags</label>
-                    <select name="tags[]" id="tags" class="form-control" multiple>
+                    <select name="tags[]" id="tags" class="tags-selector form-control " multiple="multiple" placeholder="choose tag">
                         @foreach ($tags as $tag)
                             <option value="{{$tag->id}}"
                                 @if (isset($post))
@@ -77,6 +77,7 @@
                     </select>
                 @endif
             </div>
+
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" id="image" class="form-control">
@@ -96,11 +97,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        flatpickr('#published_at',{enableTime: true})
+        flatpickr('#published_at',{enableTime: true});
+
     </script>
 @endsection
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
 @endsection

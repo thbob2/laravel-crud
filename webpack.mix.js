@@ -16,3 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.copy('node_modules/dark-mode-switch/dark-mode.css','public/css/dark-mode.css');
 mix.copy('node_modules/dark-mode-switch/dark-mode-switch.min.js','public/js/dark-mode-switch.min.js');
+
+mix.copy('node_modules/ttskch/select2-bootstrap4-theme/docs/script.js', 'public/js/select2.js');
+mix.copy('node_modules/ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.css', 'public/css/select2-bootstrap4.css');
