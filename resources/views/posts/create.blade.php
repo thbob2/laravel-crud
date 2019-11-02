@@ -59,11 +59,11 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group modal-fade " id ="tag-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="form-group" id ="tag-modal" >
 
                 @if ($tags->count()>0)
                 <label for="tags">Tags:</label>
-                    <select name="tags[]" id="tags" class="form-control tags-selector" multiple="multiple" placeholder="choose tag">
+                    <select name="tags[]" id="tags" class="form-control tags-selector " multiple="multiple" placeholder="choose tag">
                         @foreach ($tags as $tag)
                             <option value="{{$tag->id}}"
                                 @if (isset($post))
