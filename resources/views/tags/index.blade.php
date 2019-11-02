@@ -20,7 +20,7 @@
                                 <tr>
                                     <td>{{$tag->name}}</td>
                                     <td>
-
+                                        {{$tag->posts->count()}}
                                     </td>
 
                                     <td class="float-right">

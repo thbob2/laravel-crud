@@ -63,9 +63,16 @@
 
                 @if ($tags->count()>0)
                 <label for="tags">Tags</label>
-                    <select name="tags" id="tags" class="form-control" multiple>
+                    <select name="tags[]" id="tags" class="form-control" multiple>
                         @foreach ($tags as $tag)
-                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            <option value="{{$tag->id}}"
+                                @if (isset($post))
+                                    @if ($post->hasTag($tag->id))
+                                        selected
+                                    @endif
+                                @endif
+                                >
+                                {{$tag->name}}</option>
                         @endforeach
                     </select>
                 @endif

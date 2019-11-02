@@ -46,7 +46,8 @@ class PostsController extends Controller
         //store the picture
         $image = $request->image->store('posts');
         //create the post
-        Post::create([
+        //save the post
+        $post = Post::create([
             'title' => $request->title,
             'description'=> $request->description,
             'content' => $request->content,
@@ -55,7 +56,11 @@ class PostsController extends Controller
             'category_id' => $request->category,
             'published_at' =>$request->published_at
         ]);
-        //save the post
+
+        if ($request->tags) {
+
+            $post->tags()->attach($request->tags);
+        }
 
         // session flah
         session()->flash('success','Post Created Successfully');
