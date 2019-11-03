@@ -81,7 +81,7 @@
                                 @if (auth()->user()->isAdmin())
 
                                     <li class="list-group-item">
-                                        <a href="">Users</a>
+                                    <a href="{{route('users.index')}}">Users</a>
                                     </li>
 
                                 @endif

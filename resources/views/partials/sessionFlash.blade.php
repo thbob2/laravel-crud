@@ -23,3 +23,9 @@
                     {{session()->get('restored')}}
                 </div>
                 @endif
+
+                @if (session()->has('notGranted'))
+                <div class="alert alert-danger">
+                    {{session()->get('notGranted')}}
+                </div>
+                @endif
