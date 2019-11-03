@@ -36,3 +36,4 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('tags','TagsController');
 
 });
+Route::get('users','UsersController@index');
