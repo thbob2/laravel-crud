@@ -113,6 +113,10 @@ class PostsController extends Controller
 
 
         //update attributes
+        if ($request->tags) {
+
+            $post->tags()->sync($request->tags);
+        }
         $post->update($data);
         //redirect
         session()->flash('success','Post updated Successfully');

@@ -1,8 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/dark-mode.css": "/css/dark-mode.css",
-    "/js/dark-mode-switch.min.js": "/js/dark-mode-switch.min.js",
-    "/js/select2.js": "/js/select2.js",
-    "/css/select2-bootstrap4.css": "/css/select2-bootstrap4.css"
+    "/js/select2.min.js": "/js/select2.min.js",
+    "/css/select2.min.css": "/css/select2.min.css"
 }
