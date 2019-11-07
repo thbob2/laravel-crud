@@ -10,6 +10,15 @@ class UsersController extends Controller
     public function index(){
         return view('users.index')->with('users',User::all());
     }
+    public function edit(){
+
+        return view('users.edit');
+
+    }
+
+
+
+
     public function makeAdmin(User $user){
         $user->role = 'admin' ;
 
@@ -18,5 +27,6 @@ class UsersController extends Controller
         session()->flash('success', $user->name.' is now an administrator');
         return  redirect(route('users.index'));
     }
+
 }
 
