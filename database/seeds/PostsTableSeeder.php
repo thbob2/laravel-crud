@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\Tag;
 use App\Category;
 use Illuminate\Database\Seeder;
 
@@ -44,6 +45,39 @@ class PostsTableSeeder extends Seeder
 
         ]);
 
+        $tag1 = Tag::create([
+            'name' => 'Record',
+        ]);
+        $tag2 = Tag::create([
+            'name' => 'Progress',
+        ]);
+        $tag3 = Tag::create([
+            'name' => 'customers',
+        ]);
+        $tag4 = Tag::create([
+            'name' => 'Freeble',
+        ]);
+        $tag5 = Tag::create([
+            'name' => 'Offer',
+        ]);
+        $tag6 = Tag::create([
+            'name' => 'Screenshot',
+        ]);
+        $tag7 = Tag::create([
+            'name' => 'Milestone',
+        ]);
+        $tag8 = Tag::create([
+            'name' => 'Version',
+        ]);
+        $tag9 = Tag::create([
+            'name' => 'Design',
+        ]);
+        $tag10 = Tag::create([
+            'name' => 'Job',
+        ]);
+        $tag11 = Tag::create([
+            'name' => 'Record',
+        ]);
 
         $post1 =Post::create([
             'title' => 'We relocated our office to a new designed garage',
