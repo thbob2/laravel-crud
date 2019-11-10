@@ -1,5 +1,4 @@
 @extends('layouts.blog')
-@extends('layouts.blog')
 @section('title')
 Tag {{$tag->name}}
 @endsection
