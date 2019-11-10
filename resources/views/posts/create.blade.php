@@ -99,7 +99,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
     <script>
-        flatpickr('#published_at',{enableTime: true});
+        flatpickr('#published_at',{enableTime: true,
+        enableSeconds:true
+        });
         $('select').selectpicker();
     </script>
     </script>

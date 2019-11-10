@@ -26,7 +26,7 @@
                         </td>
                         <td>
                             <!-- posts count for the user-->
-                            0
+                            {{$user->posts->count()}}
                         </td>
                         <td class="float-right">
                             <!-- buttons link -->

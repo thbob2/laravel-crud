@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use APP\User;
 use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,7 @@ class PostsController extends Controller
     }
     public function index()
     {
-        //
+        $user = auth()->user();
         return view('posts.index')->with('posts',Post::all());
     }
 
