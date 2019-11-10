@@ -22,7 +22,7 @@ class PostsController extends Controller
     }
     public function index()
     {
-        $user = auth()->user();
+
         return view('posts.index')->with('posts',Post::all());
     }
 
