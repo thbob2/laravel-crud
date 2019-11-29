@@ -10,6 +10,7 @@ use App\Tag;
 class PostsController extends Controller
 {
     //
+    
     public function show(Post $post){
         return view('blog.show')->with('post', $post);
     }
