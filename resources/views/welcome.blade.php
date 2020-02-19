@@ -48,11 +48,7 @@ Dealers Blog
                         </div>
                         {{$posts->appends(['search' => request()->query('search') ])->links()}}
                     </div>
-
-
-
                     @include('partials.sidebar')
-
                 </div>
             </div>
         </div>
