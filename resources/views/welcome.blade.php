@@ -30,7 +30,7 @@ Dealers Blog
                 <div class="row">
                     <div class="col-md-8 col-xl-9">
                         <div class="row gap-y">
-                            @forelse ($posts as $post)
+                            @foreach ($posts as $post)
                                 <div class="col-md-6">
                                     <div class="card border hover-shadow-6 mb-6 d-block">
                                         <a href="{{ route('blog.show',$post->id) }}"><img class="card-img-top" src="{{url('storage/'.$post->image)}}" alt="Card image cap"></a>
@@ -40,9 +40,8 @@ Dealers Blog
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                <p class="text-center">No result found for your request <strong>"{{request()->query('search')}}"</strong></p>
-                            @endforelse
+
+                            @endforeach
 
 
                         </div>
