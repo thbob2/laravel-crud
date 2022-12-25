@@ -38,8 +38,8 @@ services:
   # Made by the original developers of MySQL and guaranteed to stay open source
   # If you want to connect from any external SQL Client, use port: 33061
   db:
-    image: mysql:5.7
-    container_name: mysql
+    image: mariadb:10.2
+    container_name: mariadb
     restart: unless-stopped
     tty: true
     ports:
@@ -47,8 +47,8 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_USER: user
-      MYSQL_PASSWORD: "yourpassword"
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: 123456
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
